@@ -39,7 +39,7 @@ class UserModel(AbstractUser):
     first_name = models.CharField(verbose_name='Имя', max_length=20)
     last_name = models.CharField(verbose_name='Фамилия', max_length=50)
     username = models.EmailField(verbose_name='Электронная почта', max_length=254, **nb, unique=True)
-    is_staff = models.BooleanField("staff status", default=False,)
+    # is_staff = models.BooleanField("staff status", default=False,)
     is_active = models.BooleanField("active", default=True,)
     password = models.CharField(verbose_name='Пароль', max_length=254, null=False, blank=False)
     delivery_address = models.CharField(verbose_name='Адрес доставки', max_length=254, **nb)

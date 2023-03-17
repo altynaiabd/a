@@ -1,11 +1,28 @@
-from rest_framework import viewsets
+from rest_framework import generics, permissions
 from .models import CategoryModel, ProductModel
 from .serializers import CategorySerializers, ProductSerializers
 
-class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
+
+class CategoryList(generics.ListCreateAPIView):
     queryset = CategoryModel.objects.all()
     serializer_class = CategorySerializers
+    permission_classes = [permissions.IsAdminUser]
 
-class ProductViewSet(viewsets.ModelViewSet):
+
+class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CategoryModel.objects.all()
+    serializer_class = CategorySerializers
+    permission_classes = [permissions.IsAdminUser]
+
+
+class ProductList(generics.ListCreateAPIView):
     queryset = ProductModel.objects.all()
     serializer_class = ProductSerializers
+    permission_classes = [permissions.IsAdminUser]
+
+
+class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ProductModel.objects.all()
+    serializer_class = ProductSerializers
+    permission_classes = [permissions.IsAdminUser]
+
