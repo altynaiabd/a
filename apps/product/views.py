@@ -3,7 +3,7 @@ from .models import CategoryModel, ProductModel
 from .serializers import CategorySerializers, ProductSerializers
 
 
-class CategoryList(generics.ListCreateAPIView):
+class CategoryListCreate(generics.ListCreateAPIView):
     queryset = CategoryModel.objects.all()
     serializer_class = CategorySerializers
     permission_classes = [permissions.IsAdminUser]
@@ -15,7 +15,7 @@ class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAdminUser]
 
 
-class ProductList(generics.ListCreateAPIView):
+class ProductListCreate(generics.ListCreateAPIView):
     queryset = ProductModel.objects.all()
     serializer_class = ProductSerializers
     permission_classes = [permissions.IsAdminUser]

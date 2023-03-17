@@ -3,7 +3,7 @@ from .models import OrderModel, OrderItemModel
 from .serializers import OrderSerializers, OrderItemSerializers
 
 
-class OrderList(generics.ListCreateAPIView):
+class OrderListCreate(generics.ListCreateAPIView):
     queryset = OrderModel.objects.all()
     serializer_class = OrderSerializers
     permission_classes = [permissions.IsAuthenticated]
@@ -15,7 +15,7 @@ class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class OrderItemList(generics.ListCreateAPIView):
+class OrderItemListCreate(generics.ListCreateAPIView):
     queryset = OrderItemModel.objects.all()
     serializer_class = OrderItemSerializers
     permission_classes = [permissions.IsAuthenticated]

@@ -13,7 +13,8 @@ class CategoryModel(AbstractModel):
         verbose_name_plural = 'Категории'
 
     def __str__(self) -> str:
-        return self.category
+        return self.name
+
 
 class ProductModel(AbstractModel):
     name = models.CharField(verbose_name='Наименование товара', max_length=50)
